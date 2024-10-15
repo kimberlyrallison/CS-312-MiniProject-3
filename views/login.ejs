@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+
+<html>
+<body>
+<style>
+.editFormGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    grid-template-areas: 
+    "label"
+    "form";
+    position: relative;
+    border-radius: 10px;
+    position: relative;
+    background-color: whitesmoke;
+    left: 25%;
+    width: 50%;
+    padding: 10px;
+}
+.label {
+    grid-area: label;
+    text-align: center;
+    position: relative;
+    background-color: dimgrey;
+    height: 50px;
+    padding: 10px;
+    border-radius: 10px;
+    font-family: monospace;
+    font-size: x-large;
+}
+.form {
+    background-color: lightgray;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 5px;
+    font-family: monospace;
+    font-size: large;
+}
+.button {
+  font: bold 11px Arial;
+  text-decoration: none;
+  background-color: #EEEEEE;
+  color: #333333;
+  padding: 2px 6px 2px 6px;
+  border-top: 1px solid #CCCCCC;
+  border-right: 1px solid #333333;
+  border-bottom: 1px solid #333333;
+  border-left: 1px solid #CCCCCC;
+}
+</style>
+<div class="editFormGrid">
+    <div class="label"> Login </div>
+    <div>
+    <%= errorMessage %>
+    </div>
+    <div>
+    <form action="/login" method="post" class="form">
+    <div class="formItem">
+        User ID: 
+        <input text="User ID" id="userID" name="userID">
+    <div>
+    <div class="formItem">
+        Password: 
+        <input text="Password" id="password" name="password">
+    </div>
+    <button type="submit" class="button">
+        Login
+    </button>
+    <a href="/register" class="button"> Register </a>
+    </form>
+    </div>
+</div>
+</body>
+</html>

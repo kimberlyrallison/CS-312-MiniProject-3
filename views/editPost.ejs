@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+
+<html>
+<body>
+<style>
+.editFormGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    grid-template-areas: 
+    "label"
+    "form";
+    position: relative;
+    border-radius: 10px;
+    position: relative;
+    background-color: whitesmoke;
+    left: 25%;
+    width: 50%;
+    padding: 10px;
+}
+.label {
+    grid-area: label;
+    text-align: center;
+    position: relative;
+    background-color: dimgrey;
+    height: 50px;
+    padding: 10px;
+    border-radius: 10px;
+    font-family: monospace;
+    font-size: x-large;
+}
+.form {
+    background-color: lightgray;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 5px;
+    font-family: monospace;
+    font-size: large;
+}
+.formItem {
+    padding: 10px;
+}
+</style>
+
+<div class="editFormGrid">
+    <div class="label">
+        Edit Post
+    </div>
+    <div class="form">
+    <form action="/save" method="post">
+        <input type="hidden" id="id" name="id" value="<%= post.blog_id %>">
+        <div class="formItem">
+            Name:
+            <input type="text" id="name" name="name" value="<%= post.name %>"><br>
+        </div>
+        <div class="formItem">
+            Post Title:
+            <input type="text" id="title" name="title" value="<%= post.title %>"><br>
+        </div>
+        <div class="formItem">
+            Post Content:
+            <textarea id="content" name="content"><%= post.content %></textarea><br>
+        </div>
+        <button type="submit">
+            Save
+        </button>
+    </form>
+    </div>
+</div>
+</body>
+</html>
