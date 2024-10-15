@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+
+<body>
+<style>
+.blogPost {
+  display: grid;
+  grid-template-columns: 2fr 2fr 1fr 1fr;
+  grid-template-rows: auto;
+  grid-template-areas: 
+    "header header deleteButton editButton"
+    "info info info info"
+    "postContent postContent postContent postContent"
+    "postContent postContent postContent postContent";
+    position: relative;
+    background-color: lightgray;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 5px;
+    font-family: monospace;  
+}
+.title {
+    grid-area: header;
+    padding:  5px;
+    box-sizing: border-box;
+    font-size: x-large;
+}
+.editButton {
+    grid-area: editButton;
+    margin: 5px;
+    background-color: whitesmoke;
+    border-radius: 10px;
+    padding: 5px;
+    text-align: center;
+}
+.deleteButton {
+    grid-area: deleteButton;
+    margin: 5px;
+    background-color: whitesmoke;
+    border-radius: 10px;
+    padding: 5px;
+    text-align: center;
+}
+.info {
+    grid-area: info;
+    font-size: small;
+    margin-left: 5px;
+}
+.postContent {
+    grid-area: postContent;
+    margin: 5px;
+    background-color: whitesmoke;
+    border-radius: 10px;
+    padding: 5px;
+    font-size: medium;
+}
+.link {
+    text-decoration: none;
+    color: black;
+    font-family: monospace;
+}
+</style>
+
+<div class="blogPost">
+        <div class="title">
+            <%= post.title %><br>
+        </div> 
+        <div class="deleteButton">
+            <a href="/delete?id=<%= post.blog_id %>" class="link"> delete </a>
+        </div>
+        <div class="editButton">
+            <a href="/editPost?id=<%= post.blog_id %>" class="link"> edit </a>
+        </div>
+        <div class="info">
+            Author: <%= post.creator_name %><br>
+            Last Edited: <%= post.date_created %><br>
+        </div>
+        <div class="postContent">
+            <%= post.body %><br>
+        </div>
+</div>
+</body>
